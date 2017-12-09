@@ -19,6 +19,9 @@ class PlacesController < ApplicationController
         
     end
 
+    def edit
+        @place = Place.find(params[:id])        
+    end
 
     def index
         @places = Place.paginate(:page => params[:page], per_page: 3)
@@ -30,9 +33,5 @@ class PlacesController < ApplicationController
     def place_params
         params.require(:place).permit(:name, :description, :address)
     end
-
-
-
-
 
 end
