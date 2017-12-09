@@ -27,6 +27,13 @@ class PlacesController < ApplicationController
         @places = Place.paginate(:page => params[:page], per_page: 3)
     end
 
+    def update
+        @place = Place.find(params[:id])
+        @place.update_attributes(place_params)
+        redirect_to root_path
+    end
+
+
 
     private
 
